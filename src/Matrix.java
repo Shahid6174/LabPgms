@@ -1,67 +1,42 @@
 import java.util.*;
-class Matrix
-{
-    public static void main(String[] args) {
-        
-        if(args.length != 2)
-        {
-            System.out.println("Please provide with two matrices sizes as Command-Line arguments...");
-            return;
-        }
-        int rows = Integer.parseInt(args[0]);
-        int columns = Integer.parseInt(args[1]);
-        if(rows<=0||columns<=0)
-        {
-            System.out.println("The sizes of matrix should be positive...");
-            return;
-        }
-        int[][] matrixA = new int[rows][columns];
-        int[][] matrixB = new int[rows][columns];
 
-        intitialize_matrix(matrixA);
-        intitialize_matrix(matrixB);
-        int[][] resultMatrix = addMatrices(matrixA, matrixB);
-        System.out.println("Matrix A: ");
-        print_Matrix(matrixA);
-        System.out.println("Matrix B: ");
-        print_Matrix(matrixB);
-        System.out.println("Resultant matrix: ");
-        print_Matrix(resultMatrix);
-    }
-    private static void intitialize_matrix(int[][] matrix)
-        {
-            int value = 0;
-            for(int i = 0; i<matrix.length; i++)
-            {
-                for(int j = 0; j < matrix[i].length; j++)
-                {
-                    matrix[i][j] = value++;
-                }
+class Matrix {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int m, n, p, q, i, j;
+        m = Integer.parseInt(args[0]);
+        n = Integer.parseInt(args[1]);
+        p = Integer.parseInt(args[2]);
+        q = Integer.parseInt(args[3]);
+        int[][] a = new int[m][n];
+        int[][] b = new int[p][q];
+        int[][] c = new int[m][q]; // Rectified: Resultant matrix size m x q
+        if (n != p) { // Rectified: Check condition for matrix addition
+            System.out.println("Matrix addition is not possible");
+            System.exit(0);
+        }
+        System.out.println("Enter matrix 1 elements");
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < n; j++)
+                a[i][j] = s.nextInt();
+        }
+        System.out.println("Enter matrix 2 elements");
+        for (i = 0; i < p; i++) {
+            for (j = 0; j < q; j++)
+                b[i][j] = s.nextInt();
+        }
+        // Rectified: Loop for adding matrices
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < q; j++) {
+                c[i][j] = 0;
+                c[i][j] = a[i][j] + b[i][j];
             }
         }
-        private static int[][] addMatrices(int[][] matrixA, int[][] matrixB)
-        {
-            int rows = matrixA.length;
-            int columns = matrixA[0].length;
-            int[][] resultMatrix = new int[rows][columns];
-            for(int i = 0; i<rows; i++)
-            {
-                for(int j = 0; j<columns; j++)
-                {
-                    resultMatrix[i][j] = matrixA[i][j] + matrixB[i][j];
-                }
-            }
-            return resultMatrix;
-        }
-        private static void print_Matrix(int[][] matrix)
-        {
-            for(int[] row: matrix)
-            {
-                for(int value: row)
-                {
-                    System.out.println(value + " ");
-                }
-            }
+        System.out.println("The matrix after addition is");
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < q; j++)
+                System.out.print(c[i][j] + " ");
             System.out.println();
         }
+    }
 }
