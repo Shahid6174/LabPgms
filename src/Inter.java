@@ -35,13 +35,16 @@ class Rectangle implements Resizable
 public class Inter {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Resizable obj = new Rectangle(5, 4);
+        System.out.println("Enter the initial size of rectangle: ");
+        int height = sc.nextInt();
+        int width = sc.nextInt();
+        Resizable obj = new Rectangle(height,width);
         obj.printSize();
         System.out.println("Enter the resized height: ");
-        int height = sc.nextInt();
+        height = sc.nextInt();
         obj.resizeHeight(height);
         System.out.println("Enter the resized width: ");
-        int width = sc.nextInt();
+        width = sc.nextInt();
         obj.resizeWidth(width);
         obj.printSize();
     }
