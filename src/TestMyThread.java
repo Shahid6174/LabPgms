@@ -26,7 +26,7 @@ public class TestMyThread {
         MyThreadNew mt = new MyThreadNew();
         try
         {
-            for(int k = 5; k<0; k--)
+            for(int k = 5; k>0; k--)
             {
                 System.out.println("Running main thread: "+k);
                 Thread.sleep(1000);
