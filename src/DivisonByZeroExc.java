@@ -11,12 +11,12 @@ class MyException extends Exception
     } 
 }
 
-public class DivisonByZeroExc {
+public class DivisonByZeroExc 
+{
 
-    static void divide(int a, int b) throws 
-    MyException
+    static void divide(int a, int b) throws MyException
     {
-        if(b<=0)
+        if(b==0)
             throw new MyException(b);
         else 
             System.out.println("Divison: "+(a/b));      
