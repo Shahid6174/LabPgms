@@ -10,8 +10,8 @@ class Matrix {
         q = Integer.parseInt(args[3]);
         int[][] a = new int[m][n];
         int[][] b = new int[p][q];
-        int[][] c = new int[m][q]; // Rectified: Resultant matrix size m x q
-        if (n != p) { // Rectified: Check condition for matrix addition
+        int[][] c = new int[m][q]; 
+        if (m!=p && n != q) { 
             System.out.println("Matrix addition is not possible");
             System.exit(0);
         }
