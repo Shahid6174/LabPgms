@@ -10,7 +10,7 @@ class Triangle extends Fields
 {
     private int l, b, h;
 
-    void display(int l,int b, int h)
+    void getData(int l,int b, int h)
     {
         this.l = l;
         this.b = b;
@@ -34,7 +34,7 @@ class Circle extends Fields
 {
     private int r;
 
-    void display(int r)
+    void getData(int r)
     {
         this.r = r;
         System.out.println("This is a circle...");
@@ -57,14 +57,14 @@ public class Abstract {
         Triangle T = new Triangle();
         System.out.println("Enter the radius of the circle: ");
         int r = sc.nextInt();
-        C.display(r);
+        C.getData(r);
         C.calculateArea();
         C.calculatePerimeter();
         System.out.println("Enter the dimensions of triangle: ");
         int l = sc.nextInt();
         int b = sc.nextInt();
         int h = sc.nextInt(); 
-        T.display(l,b,h);
+        T.getData(l,b,h);
         T.calculateArea();
         T.calculatePerimeter();
     }
