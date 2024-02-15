@@ -1,12 +1,12 @@
 import java.util.*;
 
-abstract class Fields
+abstract class Shape
 {
     abstract void calculateArea();
     abstract void calculatePerimeter();
 }
 
-class Triangle extends Fields
+class Triangle extends Shape
 {
     private int l, b, h;
 
@@ -30,7 +30,7 @@ class Triangle extends Fields
     
 }
 
-class Circle extends Fields
+class Circle extends Shape
 {
     private int r;
 
